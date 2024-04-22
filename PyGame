@@ -1,0 +1,56 @@
+# 1. IMPORT --------------------------------------------------
+
+# pip install pygame
+import pygame
+
+# 2. INICIALIZACAO -------------------------------------------
+# Iniciar o Pygame
+pygame.init()
+
+# Iniciando a janela com a configuração de resolução de 840x480
+
+# Constates de Largura e Altura
+WIDTH_SCREEN = 840 # Largura
+HEIGHT_SCREEN = 480 # Altura
+
+display = pygame.display.set_mode([WIDTH_SCREEN,HEIGHT_SCREEN])
+
+# Preenche o fundo da janela com a cor em RGB
+display.fill([252, 207, 3])
+
+# Muda o titulo da janela
+pygame.display.set_caption("Game SENAI - Python")
+
+
+# 3. VARIAVEIS GLOBAIS ----------------------------------------
+
+# Variavel para controlar o loop
+gameLoop = True
+
+
+# 4. FUNCAO PRINCIPAL ------------------------------------------
+def main():
+
+    global gameLoop
+
+    while gameLoop:
+
+        # Loop para vericar os possíveis eventos
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                gameLoop = False
+            # elif event.type == pygame.KEYDOWN:
+            #     if event.key == pygame.K_w:
+            #         print("Apertou o W")
+
+        keys = pygame.key.get_pressed()
+
+        if keys[pygame.K_w]:
+            print("Segurando o W")
+        elif keys[pygame.K_a]:
+            print("Segurando o A")
+        
+        pygame.display.update()
+
+if _name_ == "_main_":
+    main()
